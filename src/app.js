@@ -11,6 +11,7 @@ const morganMiddleware = require("./middlewares/morgan.middleware")
 const deliberationRoute = require("./routes/deliberation.route")
 const orientationRoute = require("./routes/orientation.route")
 const mentionRoute = require("./routes/mention.route")
+const thesisRoute = require("./routes/thesis.route")
 
 //Configure environment variables
 dotenv.config()
@@ -41,6 +42,7 @@ app.use(morganMiddleware)
 app.use("/api/v1/deliberation", deliberationRoute)
 app.use("/api/v1/orientation", orientationRoute)
 app.use("/api/v1/mention", mentionRoute)
+app.use("/api/v1/thesis", thesisRoute)
 
 //Serving
 app.listen(port, () => {
