@@ -29,6 +29,26 @@ const thesisController = {
         catch (error) {
             return res.json(error)
         }
+    },
+
+    getSamplesPerJobDomains: async (req, res) => {
+        try {
+            const samples = await thesisService.getSamplesPerJobDomains()
+            return res.json(samples)    
+        } 
+        catch (error) {
+            return res.json(error)
+        }
+    },
+
+    getSamplesPerThesisDomains: async (req, res) => {
+        try {
+            const samples = await thesisService.getSamplesPerThesisDomains()
+            return res.json(samples)    
+        } 
+        catch (error) {
+            return res.json(error)
+        }
     }
 }
 
