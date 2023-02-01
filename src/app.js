@@ -13,6 +13,7 @@ const orientationRoute = require("./routes/orientation.route")
 const mentionRoute = require("./routes/mention.route")
 const thesisRoute = require("./routes/thesis.route")
 const dissertationRoute = require("./routes/dissertation.route")
+const registerRoute = require("./routes/register.route")
 
 //Configure environment variables
 dotenv.config()
@@ -45,6 +46,7 @@ app.use("/api/v1/orientation", orientationRoute)
 app.use("/api/v1/mention", mentionRoute)
 app.use("/api/v1/thesis", thesisRoute)
 app.use("/api/v1/dissertation", dissertationRoute)
+app.use("/api/v1/register", registerRoute)
 
 //Serving
 app.listen(port, () => {
