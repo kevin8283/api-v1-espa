@@ -7,6 +7,7 @@ const dotenv = require("dotenv")
 const app = express()
 const logger = require("./utils/logger")
 const morganMiddleware = require("./middlewares/morgan.middleware")
+const { corsMiddleware } = require("./middlewares/cors.middleware")
 
 //Configure environment variables
 dotenv.config()
@@ -43,7 +44,7 @@ mongoose.connect(mongodbURI, mongoDbOptions, (error) => {
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser(cookie_secret))
-app.use(cors())
+app.use(corsMiddleware.cors)
 app.use(xss_clean())
 app.use(morganMiddleware)
 

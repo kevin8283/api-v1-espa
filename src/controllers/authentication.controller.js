@@ -4,13 +4,18 @@ const authController = {
     verifyToken: async (req, res) => {
         try {
             const token = req.cookies.authToken
-            const isTokenValid = authService.verifyToken(token)
 
-            if (isTokenValid) {
-                return res.json("Token valide")
+            if (token) {
+
+                const isTokenValid = authService.verifyToken(token)
+
+                if (isTokenValid) {
+                    return res.json("Token valide")
+                }
+
+                return res.status(401).send("Token invalide")
             }
-
-            return res.status(401).send("Token invalide")
+            return res.status(401).send("You are not authorized to access this ressource")
         } 
         
         catch (error) {

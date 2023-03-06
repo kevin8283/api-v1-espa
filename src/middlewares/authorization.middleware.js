@@ -3,7 +3,7 @@ const secret = process.env.TOKEN_SECRET
 
 const authMiddleware = {
     verifyToken: (req, res, next) => {
-        const [, token] = req.headers.authorization.split(" ")
+        const token = req.cookies.authToken
         const isTokenValid = jwt.verify(token, secret)
 
         if (!isTokenValid) {
